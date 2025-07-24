@@ -1,8 +1,46 @@
-﻿-- User Definition Functions - (UDF)
+﻿/*
+UDF - adlandirilmish T_SQL komandalar blokudur.
+Parametrler qebul ede bilir ve deyer qaytara bilir (skalyar ve ya table)
 
--- UDF iki tipdə olur
--- Scalar-valued functions
--- Table-valued functions
+Istifadechi funksiyalari neyinse deyishdirilmesi uchun yox, 
+hesablamalarin heyata kechirilmesi ve melumatlarin sechilmesi uchun nezerde tutulub
+
+Istifadechi funksiyalarinin Sql Server melumatlarina girish huququ var,
+amma onlar DDL-i yerine yetire bilmirler, 
+bu, o demekdir ki, onlar cedveller yarada bilmir,cedvelleri, 
+indeksleri ve ya istenilen diger obyektleri modifikasiya ede bilmir. 
+Onlar hemchinin DML instruksiyalarinin komeyi ile daimi cedvellerde istenilen 
+melumatlari deyishdire bilmir.
+
+   IstifadechiIstifadechi terefinden teyin olunan funksiyanin 2 esas tipi movcuddur :
+	+ skalyar funksiyalar (chagirish eden terefe yegane anlami qaytarir)
+	+ cedvel anlamli funksiyalar(cedveli qaytarir)
+
+	Skalyar funksiyalar Bir anlami qaytaran deyimin meydana gele bildiyi istenilen sorgu yerinde peyda ola biler.
+
+    Cedvel anlamli funksiya T-SQL sorgusunda cedvel neticesinin gozlenildiyi yerde chagirila biler(FROM cumlesinde oldugu kimi)
+	Bele funksiyani Exec-in komeyile chagirmaq mumkun deyil
+
+
+CREATE FUNCTION func_name
+(param1 AS data_type [= deafault value],
+...
+paramN AS data_type [= deafault value]
+)
+RETURNS return_data_type
+AS
+BEGIN
+	function_body
+	RETURN value
+END
+
+table tipli deyishenin yaradilmasi
+DECLARE @variable_name
+	col1 data_type specificator
+	col2 data_type specificator
+	...
+	colN data_type specificator
+*/
 
 USE [Library]
 
